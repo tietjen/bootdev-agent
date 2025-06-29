@@ -20,3 +20,6 @@ if len(sys.argv) > 1:
         model='gemini-2.0-flash-001', contents=prompt
         )
     print(response.text)
+else:
+    print("No prompt provided")
+    sys.exit(1)
