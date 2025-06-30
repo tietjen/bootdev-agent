@@ -25,6 +25,13 @@ if len(sys.argv) > 1:
         model='gemini-2.0-flash-001', contents=messages,
         )
     print(response.text)
+    
+    if len(sys.argv) > 2 and sys.argv[2] == "--verbose":
+        
+        print(f"User prompt: {prompt}")
+        print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
+        print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
+        
 else:
     print("No prompt provided")
     sys.exit(1)
