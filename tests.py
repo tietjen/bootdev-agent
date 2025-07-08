@@ -1,21 +1,23 @@
-# from subdirectory.filename import function_name
 from functions.get_files_info import get_files_info
 
-# Define testcases
-# format:
-#   <message prefix before testcase>,
-#   <basedir for testcases>
-#   <subdir case to append to basedir>
-testcases = [
-    ["Result for current directory:", "calculator", "."],
-    ["Result for 'pkg' directory:", "calculator", "pkg"],
-    ["Result for '/bin' directory:", "calculator", "/bin"],
-    ["Result for '../' directory:", "calculator", "../"]
-    ]
+def test():
+    result = get_files_info("calculator", ".")
+    print("Result for current directory:")
+    print(result)
+    print("")
 
-for case in testcases:
-    message, baseDir, subDir = case
-    print(message)
-    result = get_files_info(baseDir, subDir)
-    if result != None:
-        print(result)
+    result = get_files_info("calculator", "pkg")
+    print("Result for 'pkg' directory:")
+    print(result)
+
+    result = get_files_info("calculator", "/bin")
+    print("Result for '/bin' directory:")
+    print(result)
+
+    result = get_files_info("calculator", "../")
+    print("Result for '../' directory:")
+    print(result)
+
+
+if __name__ == "__main__":
+    test()
